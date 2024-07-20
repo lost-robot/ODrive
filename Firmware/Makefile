@@ -9,11 +9,13 @@ PROGRAMMER_CMD=$(if $(value PROGRAMMER),-c 'hla_serial $(PROGRAMMER)',)
 
 include tup.config # source build configuration to get CONFIG_BOARD_VERSION
 
-ifeq ($(shell python -c "import sys; print(sys.version_info.major)"), 3)
-	PY_CMD := python -B
-else
-	PY_CMD := python3 -B
-endif
+# ifeq ($(shell python -c "import sys; print(sys.version_info.major)"), 3)
+# 	PY_CMD := python -B
+# else
+# 	PY_CMD := python3 -B
+# endif
+
+PY_CMD := python3 -B
 
 ifneq (,$(findstring v3.,$(CONFIG_BOARD_VERSION)))
   OPENOCD := openocd -f interface/stlink-v2.cfg $(PROGRAMMER_CMD) -f target/stm32f4x.cfg -c init
