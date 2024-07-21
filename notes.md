@@ -16,3 +16,8 @@ pip install cantools==36.0.0
 ...edited the create_can_dbc.py file and Makefile
 
 successfully flashed and connected via odrivetool
+
+cd Firmware
+make
+connect stlink to board and also connected via usb just to power the board
+make flash
